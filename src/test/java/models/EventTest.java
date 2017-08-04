@@ -69,4 +69,10 @@ public class EventTest {
         assertEquals(1450, testEvent.getTotalCost());
     }
 
+    @Test
+    public void getDiscountCode_validatesCodeToDisplayDiscountedCost_4500() {
+        Event testEvent = new Event(300, "Asian", "Non-alcohol", "Band");
+        assertEquals(4500, testEvent.getDiscountedCost("FREEDJBAND"));
+    }
+
 }

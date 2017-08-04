@@ -16,6 +16,10 @@ public class Event {
     private int beveragePrice;
     private int entertainmentPrice;
 
+    public String code;
+
+    private int discountedCost;
+
     public Event(int numGuest, String typefood, String typeBeverage, String typeEntertainment) {
         this.numGuest =  numGuest;
         this.typeFood = typefood;
@@ -45,41 +49,40 @@ public class Event {
             guestPrice = numGuest * 2;
         } else if (numGuest<200){
             guestPrice = numGuest * 2;
-            System.out.println("Coupon Code ($50 OFF): FREE50");
         } else if (numGuest<300){
             guestPrice = numGuest * 2;
-            System.out.println("Coupon Code ($100 OFF): FREE100");
-        } else{
+            code = "FREE100";
+        } else if(numGuest>=300){
             guestPrice = numGuest * 2;
-            System.out.println("Coupon Code (Free Entertainment): FREEDJ");
+            code = "FREEDJBAND";
         }
         return guestPrice;
     }
 
     public int getFoodPrice() {
-        if(typeFood.equals("American")){
+        if(typeFood.equalsIgnoreCase("American")){
             foodPrice = (8*numGuest);
-        }else if(typeFood.equals("Mexican")){
+        }else if(typeFood.equalsIgnoreCase("Mexican")){
             foodPrice = (9*numGuest);
-        }else if(typeFood.equals("European")){
+        }else if(typeFood.equalsIgnoreCase("European")){
             foodPrice = (10*numGuest);
-        }else if(typeFood.equals("Asian")){
+        }else if(typeFood.equalsIgnoreCase("Asian")){
             foodPrice = (11*numGuest);
         }
         return foodPrice;
     }
 
     public int getBeveragePrice() {
-        if(typeBeverage.equals("Non-alcohol")){
+        if(typeBeverage.equalsIgnoreCase("Non-alcohol")){
             beveragePrice = (2*numGuest);
-        }else if(typeBeverage.equals("Alcohol")){
+        }else if(typeBeverage.equalsIgnoreCase("Alcohol")){
             beveragePrice = (4*numGuest);
         }
         return beveragePrice;
     }
 
     public int getEntertainmentPrice() {
-        if(typeEntertainment.equals("DJ")){
+        if(typeEntertainment.equalsIgnoreCase("DJ")){
             entertainmentPrice = 500;
         }else if(typeEntertainment.equals("Band")){
             entertainmentPrice = 700;
@@ -92,4 +95,15 @@ public class Event {
         return totalCost;
     }
 
+    public int getDiscountedCost(String code) {
+        if(code.equalsIgnoreCase("FREE100")){
+            discountedCost = getTotalCost() - 100;
+        }else if(code.equalsIgnoreCase("FREEDJBAND")){
+            discountedCost = getTotalCost() - getEntertainmentPrice();
+        }else {
+            System.out.println("Invalid Code");
+            discountedCost = getTotalCost();
+        }
+        return discountedCost;
+    }
 }
