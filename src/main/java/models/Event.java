@@ -10,10 +10,30 @@ public class Event {
     private String typeBeverage;
     private String typeEntertainment;
 
-    public Event(int guest, String food, String beverage, String entertainment) {
-        numGuest =  guest;
-        typeFood = food;
-        typeBeverage = beverage;
-        typeEntertainment = entertainment;
+    public int getNumGuest() {
+        return numGuest;
     }
+
+    public String getTypeFood() {
+        return typeFood;
+    }
+
+    public String getTypeBeverage() {
+        return typeBeverage;
+    }
+
+    public String getTypeEntertainment() {
+        return typeEntertainment;
+    }
+
+    public Event(int numGuest, String typefood, String typeBeverage, String typeEntertainment) {
+        this.numGuest =  numGuest;
+        this.typeFood = typefood;
+        this.typeBeverage = typeBeverage;
+        this.typeEntertainment = typeEntertainment;
+    }
+
+
+
+
 }
