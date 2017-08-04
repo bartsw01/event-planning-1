@@ -57,14 +57,33 @@ public class Event {
     }
 
     public int getFoodPrice() {
+        if(typeFood.equals("American")){
+            foodPrice = (8*numGuest);
+        }else if(typeFood.equals("Mexican")){
+            foodPrice = (9*numGuest);
+        }else if(typeFood.equals("European")){
+            foodPrice = (10*numGuest);
+        }else if(typeFood.equals("Asian")){
+            foodPrice = (11*numGuest);
+        }
         return foodPrice;
     }
 
     public int getBeveragePrice() {
+        if(typeBeverage.equals("Non-alcohol")){
+            beveragePrice = (2*numGuest);
+        }else if(typeBeverage.equals("Alcohol")){
+            beveragePrice = (4*numGuest);
+        }
         return beveragePrice;
     }
 
     public int getEntertainmentPrice() {
+        if(typeEntertainment.equals("DJ")){
+            entertainmentPrice = 500;
+        }else if(typeEntertainment.equals("Band")){
+            entertainmentPrice = 700;
+        }
         return entertainmentPrice;
     }
 
