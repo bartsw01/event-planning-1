@@ -88,9 +88,8 @@ public class Event {
     }
 
     public int getTotalCost() {
+        totalCost = getGuestPrice() + getFoodPrice() + getBeveragePrice() + getEntertainmentPrice();
         return totalCost;
     }
-
-
 
 }
