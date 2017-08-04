@@ -11,33 +11,38 @@ public class EventTest {
 
     @Test
     public void newEvent_instantiatesCorrectly() throws Exception {
-        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Live Band");
+        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Band");
         assertEquals(true, testEvent instanceof Event);
     }
 
     @Test
-    public void newEvent_getnumGuest_50() {
-        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Live Band");
+    public void newEvent_getNumGuest_50() {
+        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Band");
         assertEquals(50, testEvent.getNumGuest());
     }
 
     @Test
-    public void newEvent_gettypeFood_Asian() {
-        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Live Band");
+    public void newEvent_getTypeFood_Asian() {
+        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Band");
         assertEquals("Asian", testEvent.getTypeFood());
     }
 
     @Test
-    public void newEvent_gettypeBeverage_nonAlcohol() {
-        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Live Band");
+    public void newEvent_getTypeBeverage_nonAlcohol() {
+        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Band");
         assertEquals("Non-alcohol", testEvent.getTypeBeverage());
     }
 
     @Test
-    public void newEvent_gettypeEntertainment_LiveBand() {
-        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Live Band");
-        assertEquals("Live Band", testEvent.getTypeEntertainment());
+    public void newEvent_getTypeEntertainment_LiveBand() {
+        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Band");
+        assertEquals("Band", testEvent.getTypeEntertainment());
     }
 
+    @Test
+    public void newEvent_getGuestPrice_100() {
+        Event testEvent = new Event (50, "Asian", "Non-alcohol", "Band");
+        assertEquals(100, testEvent.getGuestPrice());
+    }
 
 }
